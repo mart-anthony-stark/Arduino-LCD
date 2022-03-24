@@ -20,7 +20,13 @@ void loop() {
       message[message_pos] = inByte;
       message_pos++;
     }else{
-    	
+    	//Add null char to string
+      message[message_pos] = '\0';
+      
+      Serial.println(message);
+      
+      //RESET FOR NEXT
+      message_pos=0;
     }
   }
 }
