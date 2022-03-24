@@ -13,5 +13,14 @@ void loop() {
     
     //Read next byte
     char inByte = Serial.read();
+    
+    //Message coming in(check if not terminating char)
+    if(inByte != '\n'){
+    	//Add byte to message
+      message[message_pos] = inByte;
+      message_pos++;
+    }else{
+    	
+    }
   }
 }
