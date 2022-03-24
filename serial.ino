@@ -4,13 +4,9 @@ void setup()
 {
   Serial.begin(9600);
 }
-
+const unsigned int MAX_MESSAGE_LENGTH = 20;
 void loop() {
-  String readSerial;
-  char input = Serial.read();
-  if(Serial.available() > 0){
-    readSerial = Serial.readString();
-    Serial.println(readSerial);
-  }
+  static char message[MAX_MESSAGE_LENGTH];
+  static unsigned int message_pos = 0;
   
 }
