@@ -140,3 +140,41 @@ int ConvertDecimalToBase(int n, int b)
     }
     return r;
 }
+
+void ConvertDecimalToHex(long int num)
+{
+    long int rem[50], i = 0, length = 0;
+    while (num > 0)
+    {
+        rem[i] = num % 16;
+        num = num / 16;
+        i++;
+        length++;
+    }
+    for (i = length - 1; i >= 0; i--)
+    {
+        switch (rem[i])
+        {
+        case 10:
+            lcd.print("A");
+            break;
+        case 11:
+            lcd.print("B");
+            break;
+        case 12:
+            lcd.print("C");
+            break;
+        case 13:
+            lcd.print("D");
+            break;
+        case 14:
+            lcd.print("E");
+            break;
+        case 15:
+            lcd.print("F");
+            break;
+        default:
+            lcd.print(rem[i]);
+        }
+    }
+}
