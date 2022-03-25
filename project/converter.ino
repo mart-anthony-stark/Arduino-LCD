@@ -35,7 +35,7 @@
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(5, 4, 3, 2, A4, A5);
 
-int NumberToBeDisplayed = 0;
+String NumberToBeDisplayed = "";
 int TempNum = 0;
 
 // Mapping byte keys
@@ -69,72 +69,74 @@ void loop()
     {
         lcd.print("1");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 1;
+        NumberToBeDisplayed += "1";
     }
     else if (key == '2')
     {
         lcd.print("2");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 2;
+        NumberToBeDisplayed += "2";
     }
     else if (key == '3')
     {
         lcd.print("3");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 3;
+        NumberToBeDisplayed += "3";
     }
     else if (key == '4')
     {
         lcd.print("4");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 4;
+        NumberToBeDisplayed += "4";
     }
     else if (key == '5')
     {
         lcd.print("5");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 5;
+        NumberToBeDisplayed += "5";
     }
     else if (key == '6')
     {
         lcd.print("6");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 6;
+        NumberToBeDisplayed += "6";
     }
     else if (key == '7')
     {
         lcd.print("7");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 7;
+        NumberToBeDisplayed += "7";
     }
     else if (key == '8')
     {
         lcd.print("8");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 8;
+        NumberToBeDisplayed += "8";
     }
     else if (key == '9')
     {
         lcd.print("9");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 9;
+        NumberToBeDisplayed += "9";
     }
     else if (key == '0')
     {
         lcd.print("0");
         delay(50);
-        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 0;
+        NumberToBeDisplayed += "0";
     }
     else if (key == 'A')
     {
         lcd.clear();
         lcd.print("-- OCTAL --");
         lcd.setCursor(0, 1);
-        TempNum = ConvertDecimalToBase(NumberToBeDisplayed, 8);
+        int num = NumberToBeDisplayed.toInt();
+        TempNum = ConvertDecimalToBase(num, 8);
+        Serial.println(num);
         lcd.print(TempNum);
     }
 
-    Serial.println(NumberToBeDisplayed);
+    // Serial.println(NumberToBeDisplayed);
 }
 
 // Method for converting to with specified base
