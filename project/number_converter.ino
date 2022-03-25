@@ -137,3 +137,21 @@ String ConvertDecimalToHex(long int n)
     }
     return hex;
 }
+
+void continueProgram()
+{
+    Serial.print("\n\nDo you want to convert again? (Y/N): ");
+
+    String input = Serial.readString();
+
+    if (input.equalsIgnoreCase("y"))
+    {
+        // step = 0;
+        // num = "";
+        Serial.println("=====================================\n");
+        Serial.print("Enter number to be converted: ");
+    }
+    else if (input.equalsIgnoreCase("n"))
+    {
+    }
+}
