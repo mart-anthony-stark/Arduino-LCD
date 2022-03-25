@@ -15,14 +15,13 @@
 
  */
 
-// include the library code:
 #include <Keypad.h>
 #include <LiquidCrystal.h>
 
-// initialize the library with the numbers of the interface pins
+// initialize the lcd
 LiquidCrystal lcd(5, 4, 3, 2, A4, A5);
 
-String NumberToBeDisplayed = "";
+String numberDisplay = "";
 int TempNum = 0;
 
 // Mapping byte keys
@@ -56,68 +55,68 @@ void loop()
     {
         lcd.print("1");
         delay(50);
-        NumberToBeDisplayed += "1";
+        numberDisplay += "1";
     }
     else if (key == '2')
     {
         lcd.print("2");
         delay(50);
-        NumberToBeDisplayed += "2";
+        numberDisplay += "2";
     }
     else if (key == '3')
     {
         lcd.print("3");
         delay(50);
-        NumberToBeDisplayed += "3";
+        numberDisplay += "3";
     }
     else if (key == '4')
     {
         lcd.print("4");
         delay(50);
-        NumberToBeDisplayed += "4";
+        numberDisplay += "4";
     }
     else if (key == '5')
     {
         lcd.print("5");
         delay(50);
-        NumberToBeDisplayed += "5";
+        numberDisplay += "5";
     }
     else if (key == '6')
     {
         lcd.print("6");
         delay(50);
-        NumberToBeDisplayed += "6";
+        numberDisplay += "6";
     }
     else if (key == '7')
     {
         lcd.print("7");
         delay(50);
-        NumberToBeDisplayed += "7";
+        numberDisplay += "7";
     }
     else if (key == '8')
     {
         lcd.print("8");
         delay(50);
-        NumberToBeDisplayed += "8";
+        numberDisplay += "8";
     }
     else if (key == '9')
     {
         lcd.print("9");
         delay(50);
-        NumberToBeDisplayed += "9";
+        numberDisplay += "9";
     }
     else if (key == '0')
     {
         lcd.print("0");
         delay(50);
-        NumberToBeDisplayed += "0";
+        numberDisplay += "0";
     }
     else if (key == 'A')
     {
         lcd.clear();
         lcd.print("<< OCTAL >>");
         lcd.setCursor(0, 1);
-        int num = NumberToBeDisplayed.toInt();
+        int num = numberDisplay.toInt();
         TempNum = ConvertDecimalToBase(num, 8);
         Serial.println(num);
         lcd.print(TempNum);
@@ -127,7 +126,7 @@ void loop()
         lcd.clear();
         lcd.print("<< BINARY >>");
         lcd.setCursor(0, 1);
-        int num = NumberToBeDisplayed.toInt();
+        int num = numberDisplay.toInt();
         for (int i = 15; i >= 0; i--)
         {
             lcd.print((num >> i & 1));
@@ -137,16 +136,17 @@ void loop()
     }
     else if (key == 'C')
     {
+        delay(50);
         lcd.clear();
         lcd.print("<< HEXADECIMAL >>");
         lcd.setCursor(0, 1);
-        int num = NumberToBeDisplayed.toInt();
+        int num = numberDisplay.toInt();
         ConvertDecimalToHex(num);
         Serial.println(num);
         lcd.print(TempNum);
     }
 
-    // Serial.println(NumberToBeDisplayed);
+    // Serial.println(numberDisplay);
 }
 
 // Method for converting to with specified base
@@ -162,13 +162,13 @@ int ConvertDecimalToBase(int n, int b)
     return r;
 }
 
-void ConvertDecimalToHex(long int num)
+void ConvertDecimalToHex(long int n)
 {
     long int rem[50], i = 0, length = 0;
-    while (num > 0)
+    while (n > 0)
     {
-        rem[i] = num % 16;
-        num = num / 16;
+        rem[i] = n % 16;
+        n = n / 16;
         i++;
         length++;
     }
