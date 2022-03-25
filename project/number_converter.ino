@@ -28,5 +28,5 @@ void loop()
             Serial.print(a + "\n");
             step++;
         }
-        }
+    }
 }
