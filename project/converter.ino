@@ -135,6 +135,16 @@ void loop()
         Serial.println(num);
         lcd.print(TempNum);
     }
+    else if (key == 'C')
+    {
+        lcd.clear();
+        lcd.print("<< HEXADECIMAL >>");
+        lcd.setCursor(0, 1);
+        int num = NumberToBeDisplayed.toInt();
+        ConvertDecimalToHex(num);
+        Serial.println(num);
+        lcd.print(TempNum);
+    }
 
     // Serial.println(NumberToBeDisplayed);
 }
