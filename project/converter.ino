@@ -138,13 +138,22 @@ void loop()
     {
         delay(50);
         lcd.clear();
-        lcd.print("<< HEXADECIMAL >>");
+        lcd.print("<<HEXADECIMAL>>");
         lcd.setCursor(0, 1);
         int num = numberDisplay.toInt();
         ConvertDecimalToHex(num);
         Serial.println(num);
         lcd.print(TempNum);
     }
+    else if (key == 'D')
+    {
+        lcd.clear();
+        lcd.print("<< DECIMAL >>");
+        lcd.setCursor(0, 1);
+        lcd.print(numberDisplay);
+        delay(1000);
+    }
+    
 
     // Serial.println(numberDisplay);
 }
