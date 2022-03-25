@@ -37,7 +37,7 @@ void loop()
 
             if (input.equals("binary"))
             {
-                Serial.println("<========== BINARY ==========>");
+                Serial.println("\n<========== BINARY ==========>\n");
                 int number = num.toInt();
                 Serial.print(num + " to Binary conversion:");
                 for (int i = 15; i >= 0; i--)
@@ -48,20 +48,20 @@ void loop()
             }
             else if (input.equals("octal"))
             {
-                Serial.println("<========== OCTAL ==========>");
+                Serial.println("\n<========== OCTAL ==========>\n");
                 int number = num.toInt();
                 int octal = ConvertDecimalToBase(number, 8);
                 Serial.println(num + " to Octal conversion: " + octal);
             }
             else if (input.equals("decimal"))
             {
-                Serial.println("<========== DECIMAL ==========>");
+                Serial.println("\n<========== DECIMAL ==========>\n");
                 int number = num.toInt();
                 Serial.println(num + " to Decimal conversion: " + number);
             }
             else if (input.equals("hexadecimal"))
             {
-                Serial.println("<========== HEXADECIMAL ==========>");
+                Serial.println("\n<========== HEXADECIMAL ==========>\n");
                 int number = num.toInt();
                 String hex = ConvertDecimalToHex(number);
                 Serial.println(num + " to Hexadecimal conversion: " + hex);
