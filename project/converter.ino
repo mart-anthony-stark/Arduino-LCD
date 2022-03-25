@@ -1,15 +1,5 @@
 /*
-  LiquidCrystal Library - Hello World
-
- Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
- library works with all LCD displays that are compatible with the
- Hitachi HD44780 driver. There are many of them out there, and you
- can usually tell them by the 16-pin interface.
-
- This sketch prints "Hello World!" to the LCD
- and shows the time.
-
-  The circuit:
+  circuit connection:
  * LCD RS pin to digital pin 5
  * LCD Enable pin to digital pin 4
  * LCD D4 pin to digital pin 3
@@ -23,9 +13,6 @@
  * ends to +5V and ground
  * wiper to LCD VO pin (pin 3)
 
- This example code is in the public domain.
-
- http://www.arduino.cc/en/Tutorial/LiquidCrystal
  */
 
 // include the library code:
@@ -128,10 +115,23 @@ void loop()
     else if (key == 'A')
     {
         lcd.clear();
-        lcd.print("-- OCTAL --");
+        lcd.print("<< OCTAL >>");
         lcd.setCursor(0, 1);
         int num = NumberToBeDisplayed.toInt();
         TempNum = ConvertDecimalToBase(num, 8);
+        Serial.println(num);
+        lcd.print(TempNum);
+    }
+    else if (key == 'B')
+    {
+        lcd.clear();
+        lcd.print("<< BINARY >>");
+        lcd.setCursor(0, 1);
+        int num = NumberToBeDisplayed.toInt();
+        for (int i = 15; i >= 0; i--)
+        {
+            lcd.print((num >> i & 1));
+        }
         Serial.println(num);
         lcd.print(TempNum);
     }
