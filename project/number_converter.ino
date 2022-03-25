@@ -18,7 +18,6 @@ void loop()
         if (step == 0)
         {
             Serial.print(input + "\n");
-            Serial.println(isValidNumber(input));
 
             if (!isValidNumber(input))
             {
@@ -55,7 +54,7 @@ void loop()
             }
             else
             {
-                Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or bonary");
+                Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or binary");
                 Serial.print("Enter number system:: ");
             }
         }
