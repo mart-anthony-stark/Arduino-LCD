@@ -36,15 +36,29 @@ void loop()
         else if (step == 1)
         {
             Serial.print(input + "\n");
-            numSystem = input;
-            step++;
-        }
-        // else if (step == 2)
-        // {
-        //     switch(){
 
-        //     }
-        // }
+            if (input.equals("binary"))
+            {
+                Serial.print("Binary: ");
+            }
+            else if (input.equals("octal"))
+            {
+                Serial.print("octal: ");
+            }
+            else if (input.equals("decimal"))
+            {
+                Serial.print("decimal: ");
+            }
+            else if (input.equals("hexadecimal"))
+            {
+                Serial.print("hexadecimal: ");
+            }
+            else
+            {
+                Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or bonary");
+                Serial.print("Enter number system:: ");
+            }
+        }
     }
 }
 
