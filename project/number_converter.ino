@@ -1,6 +1,5 @@
 int step = 0;
-int num = 0;
-String numSystem = "";
+String num = "";
 void setup()
 {
     Serial.begin(9600);
@@ -26,7 +25,7 @@ void loop()
             }
             else
             {
-                num = input.toInt();
+                num = input;
                 Serial.print("Enter number system: ");
                 step++;
             }
@@ -42,15 +41,20 @@ void loop()
             }
             else if (input.equals("octal"))
             {
-                Serial.print("octal: ");
+                int number = num.toInt();
+                int octal = ConvertDecimalToBase(number, 8);
+                Serial.println(num + " to Octal conversion : " + octal);
             }
             else if (input.equals("decimal"))
             {
-                Serial.print("decimal: ");
+                int number = num.toInt();
+                Serial.println(num + " to Decimal conversion : " + number);
             }
             else if (input.equals("hexadecimal"))
             {
-                Serial.print("hexadecimal: ");
+                int number = num.toInt();
+                String hex = ConvertDecimalToHex(number);
+                Serial.println(num + " to Hexadecimal conversion : " + hex);
             }
             else
             {
