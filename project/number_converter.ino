@@ -83,3 +83,43 @@ int ConvertDecimalToBase(int n, int b)
     }
     return r;
 }
+
+String ConvertDecimalToHex(long int n)
+{
+    String hex = "";
+    long int rem[50], i = 0, length = 0;
+    while (n > 0)
+    {
+        rem[i] = n % 16;
+        n = n / 16;
+        i++;
+        length++;
+    }
+    for (i = length - 1; i >= 0; i--)
+    {
+        switch (rem[i])
+        {
+        case 10:
+            hex += "A";
+            break;
+        case 11:
+            hex += "B";
+            break;
+        case 12:
+            hex += "C";
+            break;
+        case 13:
+            hex += "D";
+            break;
+        case 14:
+            hex += "E";
+            break;
+        case 15:
+            hex += "F";
+            break;
+        default:
+            hex += rem[i];
+        }
+    }
+    return hex;
+}
