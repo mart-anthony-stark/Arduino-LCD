@@ -70,3 +70,16 @@ boolean isValidNumber(String str)
     }
     return false;
 }
+
+// Method for converting to with specified base
+int ConvertDecimalToBase(int n, int b)
+{
+    int r = 0, digitPos = 1;
+    while (n)
+    {
+        r += (n % b) * digitPos;
+        n /= b;
+        digitPos *= 10;
+    }
+    return r;
+}
