@@ -132,7 +132,6 @@ void loop()
             lcd.print((num >> i & 1));
         }
         Serial.println(num);
-        lcd.print(TempNum);
     }
     else if (key == 'C')
     {
@@ -143,7 +142,6 @@ void loop()
         int num = numberDisplay.toInt();
         ConvertDecimalToHex(num);
         Serial.println(num);
-        lcd.print(TempNum);
     }
     else if (key == 'D')
     {
@@ -181,6 +179,7 @@ int ConvertDecimalToBase(int n, int b)
 
 void ConvertDecimalToHex(long int n)
 {
+    String hex = "";
     long int rem[50], i = 0, length = 0;
     while (n > 0)
     {
@@ -194,25 +193,26 @@ void ConvertDecimalToHex(long int n)
         switch (rem[i])
         {
         case 10:
-            lcd.print("A");
+            hex += "A";
             break;
         case 11:
-            lcd.print("B");
+            hex += "B";
             break;
         case 12:
-            lcd.print("C");
+            hex += "C";
             break;
         case 13:
-            lcd.print("D");
+            hex += "D";
             break;
         case 14:
-            lcd.print("E");
+            hex += "E";
             break;
         case 15:
-            lcd.print("F");
+            hex += "F";
             break;
         default:
-            lcd.print(rem[i]);
+            hex += rem[i];
         }
     }
+    lcd.print(hex);
 }
