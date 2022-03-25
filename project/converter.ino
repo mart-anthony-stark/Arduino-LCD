@@ -77,5 +77,53 @@ void loop()
         delay(50);
         NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 2;
     }
+    else if (key == '3')
+    {
+        lcd.print("3");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 3;
+    }
+    else if (key == '4')
+    {
+        lcd.print("4");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 4;
+    }
+    else if (key == '5')
+    {
+        lcd.print("5");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 5;
+    }
+    else if (key == '6')
+    {
+        lcd.print("6");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 6;
+    }
+    else if (key == '7')
+    {
+        lcd.print("7");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 7;
+    }
+    else if (key == '8')
+    {
+        lcd.print("8");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 8;
+    }
+    else if (key == '9')
+    {
+        lcd.print("9");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 9;
+    }
+    else if (key == '0')
+    {
+        lcd.print("0");
+        delay(50);
+        NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 0;
+    }
     Serial.println(NumberToBeDisplayed);
 }
