@@ -125,6 +125,15 @@ void loop()
         delay(50);
         NumberToBeDisplayed = (NumberToBeDisplayed * 10) + 0;
     }
+    else if (key == 'A')
+    {
+        lcd.clear();
+        lcd.print("-- OCTAL --");
+        lcd.setCursor(0, 1);
+        TempNum = ConvertDecimalToBase(NumberToBeDisplayed, 8);
+        lcd.print(TempNum);
+    }
+
     Serial.println(NumberToBeDisplayed);
 }
 
