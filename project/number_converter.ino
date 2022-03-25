@@ -37,7 +37,12 @@ void loop()
 
             if (input.equals("binary"))
             {
-                Serial.print("Binary: ");
+                int number = num.toInt();
+                for (int i = 15; i >= 0; i--)
+                {
+                    Serial.print((number >> i & 1));
+                }
+                Serial.println();
             }
             else if (input.equals("octal"))
             {
