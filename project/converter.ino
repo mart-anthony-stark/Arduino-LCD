@@ -153,25 +153,17 @@ void loop()
         lcd.print(numberDisplay);
         delay(1000);
     }
-    else if (key == '*')
+    else if (key == 42)
     {
+        numberDisplay = "";
+        delay(50);
         lcd.clear();
-        numberDisplay = 0;
+        lcd.setCursor(0, 1);
+        lcd.print("Enter number");
         lcd.setCursor(0, 0);
-        lcd.print("A
-                  : Oct B
-                  : Binary");
-        lcd.setCursor(0, 1);
-        lcd.print("C
-                  : Hex D
-                  : Decimal");
-        lcd.setCursor(0, 1);
-        delay(2000);
-        lcd.clear();
-        lcd.setCursor(0, 1);
     }
 
-    // Serial.println(numberDisplay);
+    // Serial.println(key==42);
 }
 
 // Method for converting to with specified base
