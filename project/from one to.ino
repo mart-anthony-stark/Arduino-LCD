@@ -53,6 +53,7 @@ void loop()
             }
         }
 
+        //Handle input for number to be converted
         else if (step == 1)
         {
             Serial.print(input + "\n");
