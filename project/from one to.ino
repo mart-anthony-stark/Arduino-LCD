@@ -123,3 +123,63 @@ boolean isValidNumber(String str)
     }
     return false;
 }
+
+// Method for converting to with specified base
+int ConvertDecimalToBase(int n, int b)
+{
+    int r = 0, digitPos = 1;
+    while (n)
+    {
+        r += (n % b) * digitPos;
+        n /= b;
+        digitPos *= 10;
+    }
+    return r;
+}
+
+// Method for printing converted
+void printConverted(String sys1, String sys2, String result)
+{
+    Serial.println("\n<========== " + sys2 + " ==========>\n");
+    Serial.println(sys1 + " to " + sys2 + " conversion: " + result);
+}
+
+String ConvertDecimalToHex(long int n)
+{
+    String hex = "";
+    long int rem[50], i = 0, length = 0;
+    while (n > 0)
+    {
+        rem[i] = n % 16;
+        n = n / 16;
+        i++;
+        length++;
+    }
+    for (i = length - 1; i >= 0; i--)
+    {
+        switch (rem[i])
+        {
+        case 10:
+            hex += "A";
+            break;
+        case 11:
+            hex += "B";
+            break;
+        case 12:
+            hex += "C";
+            break;
+        case 13:
+            hex += "D";
+            break;
+        case 14:
+            hex += "E";
+            break;
+        case 15:
+            hex += "F";
+            break;
+        default:
+            hex += rem[i];
+        }
+    }
+    return hex;
+}
