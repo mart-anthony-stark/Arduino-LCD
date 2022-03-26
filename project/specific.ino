@@ -4,7 +4,6 @@ String system1 = "";
 void setup()
 {
     Serial.begin(9600);
-    // Serial.print("Enter number to be converted: ");
     Serial.print("Enter number system you want to convert: ");
 }
 
@@ -22,18 +21,26 @@ void loop()
             if (input.equals("binary"))
             {
                 system1 = "binary";
+                Serial.print("Enter number to be converted: ");
+                step++;
             }
             else if (input.equals("decimal"))
             {
                 system1 = "decimal";
+                Serial.print("Enter number to be converted: ");
+                step++;
             }
             else if (input.equals("hexadeximal"))
             {
                 system1 = "hexadeximal";
+                Serial.print("Enter number to be converted: ");
+                step++;
             }
             else if (input.equals("octal"))
             {
                 system1 = "octal";
+                Serial.print("Enter number to be converted: ");
+                step++;
             }
             else
             {
