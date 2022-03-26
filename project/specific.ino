@@ -22,25 +22,29 @@ void loop()
             {
                 system1 = "binary";
                 Serial.print("Enter number to be converted: ");
-                step++;
+                // delay(100);
+                step=1;
             }
             else if (input.equals("decimal"))
             {
                 system1 = "decimal";
                 Serial.print("Enter number to be converted: ");
-                step++;
+                // delay(100);
+                step=1;
             }
             else if (input.equals("hexadeximal"))
             {
                 system1 = "hexadeximal";
                 Serial.print("Enter number to be converted: ");
-                step++;
+                // delay(100);
+                step=1;
             }
             else if (input.equals("octal"))
             {
                 system1 = "octal";
                 Serial.print("Enter number to be converted: ");
-                step++;
+                // delay(100);
+                step=1;
             }
             else
             {
@@ -95,10 +99,9 @@ void loop()
             }
             else if (input.equals("hexadecimal"))
             {
-                Serial.println("\n<========== HEXADECIMAL ==========>\n");
                 int number = num.toInt();
                 String hex = ConvertDecimalToHex(number);
-                Serial.println(num + " to Hexadecimal conversion: " + hex);
+                printConverted(system1, "HEXADECIMAL", String(number, HEX));
             }
             else
             {
@@ -130,6 +133,13 @@ int ConvertDecimalToBase(int n, int b)
         digitPos *= 10;
     }
     return r;
+}
+
+// Method for printing converted
+void printConverted(String sys1, String sys2, String result)
+{
+    Serial.println("\n<========== " + sys2 + " ==========>\n");
+    Serial.println(sys1 + " to " + sys2 + " conversion: " + result);
 }
 
 String ConvertDecimalToHex(long int n)
