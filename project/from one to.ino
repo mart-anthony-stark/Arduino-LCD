@@ -75,6 +75,7 @@ void loop()
         else if (step == 2)
         {
             Serial.print(input + "\n");
+            // HANDLE DECIMAL TO BLANK CONVERSION
             if (system1.equals("decimal"))
             {
                 if (input.equals("binary"))
@@ -109,8 +110,29 @@ void loop()
                     Serial.print("Enter number system: ");
                 }
             }
+
+            // HANDLE BINARY TO BLANK CONVERSION
+            else if (system1.equals("binary"))
+            {
+                if (input.equals("binary"))
+                {
+                    printConverted(system1, "binary", num);
+                }
+            }
         }
     }
+}
+
+int BinaryToInt(char *s)
+{
+    int result = 0;
+    while (*s)
+    {
+        result <<= 1;
+        if (*s++ == '1')
+            result |= 1;
+    }
+    return result;
 }
 
 boolean isValidNumber(String str)
