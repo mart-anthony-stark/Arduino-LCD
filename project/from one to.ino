@@ -118,21 +118,38 @@ void loop()
                 {
                     printConverted(system1, "binary", num);
                 }
+                else if (input.equals("decimal"))
+                {
+                    long number = convertBinaryToDecimal(num.toInt());
+                    printConverted(system1, "decimal", String(number));
+                }
             }
         }
     }
 }
 
-int BinaryToInt(char *s)
+// Function to convert Binary to Decimal
+long convertBinaryToDecimal(long binary)
 {
-    int result = 0;
-    while (*s)
+
+    long number = binary;
+    long decimalVal = 0;
+    long baseVal = 1;
+    long tempVal = number;
+    long previousDigit;
+
+    while (tempVal)
     {
-        result <<= 1;
-        if (*s++ == '1')
-            result |= 1;
+
+        // Converts Binary to Decimal
+        previousDigit = tempVal % 10;
+        tempVal = tempVal / 10;
+        decimalVal += previousDigit * baseVal;
+        baseVal = baseVal * 2;
     }
-    return result;
+
+    // Returns the Decimal number
+    return decimalVal;
 }
 
 boolean isValidNumber(String str)
