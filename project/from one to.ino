@@ -123,6 +123,11 @@ void loop()
                     long number = convertBinaryToDecimal(num.toInt());
                     printConverted(system1, "decimal", String(number));
                 }
+                else if (input.equals("hexadecimal"))
+                {
+                    long number = convertBinaryToDecimal(num.toInt());
+                    printConverted(system1, "hexadecimal", String(number, HEX));
+                }
             }
         }
     }
