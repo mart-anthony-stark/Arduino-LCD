@@ -106,8 +106,7 @@ void loop()
                 }
                 else
                 {
-                    Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or binary");
-                    Serial.print("Enter number system: ");
+                    printErrorNSys();
                 }
             }
 
@@ -128,9 +127,24 @@ void loop()
                     long number = convertBinaryToDecimal(num.toInt());
                     printConverted(system1, "hexadecimal", String(number, HEX));
                 }
+                else if (input.equals("octal"))
+                {
+                    long number = convertBinaryToDecimal(num.toInt());
+                    printConverted(system1, "hexadecimal", String(number, 8));
+                }
+                else
+                {
+                    printErrorNSys();
+                }
             }
         }
     }
+}
+
+void printErrorNSys()
+{
+    Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or binary");
+    Serial.print("Enter number system: ");
 }
 
 // Function to convert Binary to Decimal
