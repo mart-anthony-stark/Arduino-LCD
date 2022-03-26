@@ -52,7 +52,7 @@ void loop()
                 Serial.print("Enter number system to be converted: ");
             }
         }
-        if (step == 1)
+        else if (step == 1)
         {
             Serial.print(input + "\n");
 

@@ -69,6 +69,48 @@ void loop()
                 step++;
             }
         }
+
+        // Handles input for number system
+        else if (step == 2)
+        {
+            Serial.print(input + "\n");
+
+            if (input.equals("binary"))
+            {
+                Serial.println("\n<========== BINARY ==========>\n");
+                int number = num.toInt();
+                Serial.print(num + " to Binary conversion:");
+                for (int i = 15; i >= 0; i--)
+                {
+                    Serial.print((number >> i & 1));
+                }
+                Serial.println();
+            }
+            else if (input.equals("octal"))
+            {
+                Serial.println("\n<========== OCTAL ==========>\n");
+                int number = num.toInt();
+                int octal = ConvertDecimalToBase(number, 8);
+                Serial.println(num + " to Octal conversion: " + octal);
+            }
+            else if (input.equals("decimal"))
+            {
+                Serial.println("\n<========== DECIMAL ==========>\n");
+                int number = num.toInt();
+                Serial.println(num + " to Decimal conversion: " + number);
+            }
+            else if (input.equals("hexadecimal"))
+            {
+                int number = num.toInt();
+                String hex = ConvertDecimalToHex(number);
+                printConverted(system1, "HEXADECIMAL", String(number, HEX));
+            }
+            else
+            {
+                Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or binary");
+                Serial.print("Enter number system: ");
+            }
+        }
     }
 }
 
