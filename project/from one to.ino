@@ -71,7 +71,7 @@ void loop()
             }
         }
 
-        // Handles input for number system
+        // Handles input for 2nd number system and convert it
         else if (step == 2)
         {
             Serial.print(input + "\n");
@@ -97,7 +97,8 @@ void loop()
                 else if (input.equals("hexadecimal"))
                 {
                     int number = num.toInt();
-                    printConverted(system1, "hexadecimal", String(number, HEX));
+                    String hex = ConvertDecimalToHex(number);
+                    printConverted(system1, "hexadecimal", String(hex));
                 }
                 else
                 {
@@ -120,7 +121,8 @@ void loop()
                 else if (input.equals("hexadecimal"))
                 {
                     long number = convertBinaryToDecimal(num.toInt());
-                    printConverted(system1, "hexadecimal", String(number, HEX));
+                    String hex = ConvertDecimalToHex(number);
+                    printConverted(system1, "hexadecimal", String(hex));
                 }
                 else if (input.equals("octal"))
                 {
@@ -149,7 +151,8 @@ void loop()
                 {
                     int number = num.toInt();
                     int decimal = octalToDecimal(number);
-                    printConverted(system1, "hexadecimal", String(decimal, HEX));
+                    String hex = ConvertDecimalToHex(decimal);
+                    printConverted(system1, "hexadecimal", String(hex));
                 }
                 else if (input.equals("binary"))
                 {
@@ -160,6 +163,13 @@ void loop()
                 else
                 {
                     printErrorNSys();
+                }
+            }
+            else if(input.equals("hexadecimal"))
+            {
+                if (input.equals("hexadecimal"))
+                {
+                    printConverted(system1, "hexadecimal", num);
                 }
             }
         }
