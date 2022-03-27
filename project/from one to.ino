@@ -161,7 +161,7 @@ void loop()
                 }
             }
 
-            // HANDLE HEX TO BLACK CONVERSION
+            // HANDLE HEX TO BLANK CONVERSION
             else if (system1.equals("hexadecimal"))
             {
                 if (input.equals("hexadecimal"))
@@ -191,6 +191,10 @@ void loop()
                     num.toCharArray(char_array, str_len);
                     int decimal = HexToDecimal(char_array);
                     printBinary(decimal);
+                }
+                else
+                {
+                    printErrorNSys();
                 }
             }
         }
