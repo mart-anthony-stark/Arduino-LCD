@@ -82,12 +82,7 @@ void loop()
                 {
                     Serial.println("\n<===================================================>\n");
                     int number = num.toInt();
-                    Serial.print(system1 + " to binary conversion:");
-                    for (int i = 7; i >= 0; i--)
-                    {
-                        Serial.print((number >> i & 1));
-                    }
-                    Serial.println();
+                    printBinary(number);
                 }
                 else if (input.equals("octal"))
                 {
@@ -156,9 +151,29 @@ void loop()
                     int decimal = octalToDecimal(number);
                     printConverted(system1, "hexadecimal", String(decimal, HEX));
                 }
+                else if (input.equals("binary"))
+                {
+                    int number = num.toInt();
+                    int decimal = octalToDecimal(number);
+                    printBinary(decimal);
+                }
+                else
+                {
+                    printErrorNSys();
+                }
             }
         }
     }
+}
+
+void printBinary(int number)
+{
+    Serial.print(system1 + " to binary conversion:");
+    for (int i = 7; i >= 0; i--)
+    {
+        Serial.print((number >> i & 1));
+    }
+    Serial.println();
 }
 
 void printErrorNSys()
@@ -177,7 +192,7 @@ long octalToDecimal(long int octal)
         decimal = decimal + (octal % 10) * pow(8, i++);
         octal = octal / 10;
     }
-    return decimal+1;
+    return decimal + 1;
 }
 
 // Function to convert Binary to Decimal
