@@ -137,7 +137,20 @@ void loop()
                     printErrorNSys();
                 }
             }
-            
+            // HANDLE OCTAL TO BLANK CONVERSION
+            else if (system1.equals("octal"))
+            {
+                if (input.equals("octal"))
+                {
+                    printConverted(system1, "octal", num);
+                }
+                else if (input.equals("decimal"))
+                {
+                    int number = num.toInt();
+                    int decimal = octalToDecimal(number);
+                    printConverted(system1, "decimal", String(decimal));
+                }
+            }
         }
     }
 }
@@ -146,6 +159,19 @@ void printErrorNSys()
 {
     Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or binary");
     Serial.print("Enter number system: ");
+}
+
+// Function to convert Octal to decimal
+long octalToDecimal(long int octal)
+{
+    long int decimal = 0;
+    int i = 0;
+    while (octal != 0)
+    {
+        decimal = decimal + (octal % 10) * pow(8, i++);
+        octal = octal / 10;
+    }
+    return decimal+1;
 }
 
 // Function to convert Binary to Decimal
@@ -199,7 +225,7 @@ int ConvertDecimalToBase(int n, int b)
 void printConverted(String sys1, String sys2, String result)
 {
     Serial.println("\n<===================================================>\n");
-    Serial.println("\t"+sys1 + " to " + sys2 + " conversion: " + result);
+    Serial.println("\t" + sys1 + " to " + sys2 + " conversion: " + result);
 }
 
 String ConvertDecimalToHex(long int n)
