@@ -150,6 +150,12 @@ void loop()
                     int decimal = octalToDecimal(number);
                     printConverted(system1, "decimal", String(decimal));
                 }
+                else if (input.equals("hexadecimal"))
+                {
+                    int number = num.toInt();
+                    int decimal = octalToDecimal(number);
+                    printConverted(system1, "hexadecimal", String(decimal, HEX));
+                }
             }
         }
     }
