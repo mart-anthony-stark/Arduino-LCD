@@ -22,28 +22,24 @@ void loop()
             {
                 system1 = "binary";
                 Serial.print("Enter number to be converted: ");
-                // delay(100);
                 step = 1;
             }
             else if (input.equals("decimal"))
             {
                 system1 = "decimal";
                 Serial.print("Enter number to be converted: ");
-                // delay(100);
                 step = 1;
             }
-            else if (input.equals("hexadeximal"))
+            else if (input.equals("hexadecimal"))
             {
-                system1 = "hexadeximal";
+                system1 = "hexadecimal";
                 Serial.print("Enter number to be converted: ");
-                // delay(100);
                 step = 1;
             }
             else if (input.equals("octal"))
             {
                 system1 = "octal";
                 Serial.print("Enter number to be converted: ");
-                // delay(100);
                 step = 1;
             }
             else
@@ -165,7 +161,9 @@ void loop()
                     printErrorNSys();
                 }
             }
-            else if (input.equals("hexadecimal"))
+
+            // HANDLE HEX TO BLACK CONVERSION
+            else if (system1.equals("hexadecimal"))
             {
                 if (input.equals("hexadecimal"))
                 {
@@ -173,14 +171,19 @@ void loop()
                 }
                 else if (input.equals("decimal"))
                 {
-                    int number = num.toInt();
+                    int str_len = num.length() + 1;
+                    char char_array[str_len];
+                    num.toCharArray(char_array, str_len);
+                    int decimal = HexToDecimal(char_array);
+                    printConverted(system1, "decimal", String(decimal));
                 }
             }
         }
     }
 }
 
-long HexToDecimal(char[] hex)
+// Method for converting hexadecimal to decimal
+long HexToDecimal(char hex[])
 {
     long long decimal, place;
     int i = 0, val, len;
@@ -215,7 +218,7 @@ long HexToDecimal(char[] hex)
         decimal += val * pow(16, len);
         len--;
     }
-    return decimal;
+    return decimal + 1;
 }
 
 // Function for printing binary numbers, accepts decimal int parameter
