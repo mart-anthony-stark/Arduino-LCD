@@ -177,6 +177,22 @@ void loop()
                     int decimal = HexToDecimal(char_array);
                     printConverted(system1, "decimal", String(decimal));
                 }
+                else if (input.equals("octal"))
+                {
+                    int str_len = num.length() + 1;
+                    char char_array[str_len];
+                    num.toCharArray(char_array, str_len);
+                    int decimal = HexToDecimal(char_array);
+                    printConverted(system1, "octal", String(decimal, 8));
+                }
+                else if (input.equals("binary"))
+                {
+                    int str_len = num.length() + 1;
+                    char char_array[str_len];
+                    num.toCharArray(char_array, str_len);
+                    int decimal = HexToDecimal(char_array);
+                    printBinary(decimal);
+                }
             }
         }
     }
