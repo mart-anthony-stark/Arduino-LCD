@@ -76,7 +76,6 @@ void loop()
             {
                 if (input.equals("binary"))
                 {
-                    Serial.println("\n<===================================================>\n");
                     int number = num.toInt();
                     printBinary(number);
                 }
@@ -240,6 +239,7 @@ long HexToDecimal(char hex[])
 // Function for printing binary numbers, accepts decimal int parameter
 void printBinary(int number)
 {
+    Serial.println("\n<===================================================>\n");
     Serial.print(system1 + " to binary conversion:");
     for (int i = 7; i >= 0; i--)
     {
