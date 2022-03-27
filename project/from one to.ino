@@ -130,7 +130,7 @@ void loop()
                 else if (input.equals("octal"))
                 {
                     long number = convertBinaryToDecimal(num.toInt());
-                    printConverted(system1, "hexadecimal", String(number, 8));
+                    printConverted(system1, "octal", String(number, 8));
                 }
                 else
                 {
