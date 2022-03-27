@@ -137,6 +137,7 @@ void loop()
                     printErrorNSys();
                 }
             }
+            
         }
     }
 }
@@ -198,7 +199,7 @@ int ConvertDecimalToBase(int n, int b)
 void printConverted(String sys1, String sys2, String result)
 {
     Serial.println("\n<===================================================>\n");
-    Serial.println(sys1 + " to " + sys2 + " conversion: " + result);
+    Serial.println("\t"+sys1 + " to " + sys2 + " conversion: " + result);
 }
 
 String ConvertDecimalToHex(long int n)
