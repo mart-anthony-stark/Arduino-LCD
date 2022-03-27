@@ -165,17 +165,22 @@ void loop()
                     printErrorNSys();
                 }
             }
-            else if(input.equals("hexadecimal"))
+            else if (input.equals("hexadecimal"))
             {
                 if (input.equals("hexadecimal"))
                 {
                     printConverted(system1, "hexadecimal", num);
+                }
+                else if (input.equals("decimal"))
+                {
+                    int number = num.toInt();
                 }
             }
         }
     }
 }
 
+// Function for printing binary numbers, accepts decimal int parameter
 void printBinary(int number)
 {
     Serial.print(system1 + " to binary conversion:");
@@ -186,6 +191,7 @@ void printBinary(int number)
     Serial.println();
 }
 
+// Prints error message for invalid input choice
 void printErrorNSys()
 {
     Serial.println("Invalid input. You must specify whether octal, decimal, hexadecimal, or binary");
