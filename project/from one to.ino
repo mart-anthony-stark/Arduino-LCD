@@ -5,7 +5,12 @@ String system1 = "";
 void setup()
 {
     Serial.begin(9600);
-    Serial.print("Enter number system you want to convert: ");
+    Serial.println("========= Number System Converter =========");
+    Serial.println("Enter number system you want to convert: ");
+    Serial.println("\t* decimal");
+    Serial.println("\t* octal");
+    Serial.println("\t* hexadecimal");
+    Serial.println("\t* binary");
 }
 
 void loop()
